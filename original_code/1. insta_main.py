@@ -1,6 +1,7 @@
 from original_code.instagram_crawler import instagram as insta
 from original_code.instagram_crawler import preprocessing as pp
 
+# input keyword
 keyword = input("Input Keyword: ")
 
 # login
