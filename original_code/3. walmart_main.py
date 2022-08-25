@@ -20,7 +20,7 @@ except ImportError:
     os.system('python -m pip install csv')
     import csv
 
-
+# save walmart_data.csv
 file = open('walmart_data.csv', 'w', newline='')
 writer = csv.writer(file)
 
@@ -30,6 +30,7 @@ driver.get('https://www.walmart.com/search/?query=snack')
 sleep(2)
 item_boxes = driver.find_elements_by_css_selector("a.product-title-link.line-clamp.line-clamp-2")
 
+# repeat the for loop for number of things 
 for i in range(1, len(item_boxes)):
     try:
         driver.find_element_by_xpath('//*[@id="searchProductResult"]/ul/li[' + str(i + 1) + ']').click()
@@ -41,6 +42,7 @@ for i in range(1, len(item_boxes)):
         repeat = driver.find_elements_by_css_selector("ul.paginator-list li")
         print("item # at: ", i)
 
+        # reveiw contents crawling
         for repeat in range(int(repeat[-1].text) + 1): #review-page
             driver.get(sub_url + "?page=" + str(repeat))
             sleep(2)
